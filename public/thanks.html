@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>入金確認完了｜AI業務アプリ開発スクール</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(145deg,#f5fbff,#eef8ff);color:#10233a;font-family:"Noto Sans JP","Yu Gothic",sans-serif}.card{width:min(100%,620px);padding:44px 30px;background:#fff;border:1px solid #dbe8f5;border-radius:22px;text-align:center;box-shadow:0 20px 60px #153d6418}.icon{display:grid;place-items:center;width:68px;height:68px;margin:0 auto 20px;border-radius:50%;background:#edfff8;color:#0a9a6d;font-size:34px;font-weight:900}h1{margin:0 0 15px;font-size:clamp(25px,6vw,36px);line-height:1.45}p{color:#5d6b7b;line-height:1.9}.order{display:none;margin:24px 0 0;padding:13px;border-radius:10px;background:#f1f8ff;color:#31506d;font-size:13px}.error{color:#c0392b}.back{display:inline-block;margin-top:25px;padding:13px 22px;border-radius:9px;background:#0877f9;color:#fff;text-decoration:none;font-weight:800}@media(max-width:500px){.card{padding:35px 20px}}
+</style>
+</head>
+<body>
+<main class="card">
+<div class="icon">✓</div>
+<h1>ご入金を確認しました</h1>
+<p id="message">お申込みありがとうございます。<br>受講開始について、担当者から改めてご案内します。</p>
+<p class="order" id="orderDisplay"></p>
+<a class="back" href="/">スクールページへ戻る</a>
+</main>
+<script>
+(function(){
+  var params=new URLSearchParams(location.search);
+  var order=params.get('order')||'';
+  var valid=/^[A-Za-z0-9_-]{6,100}$/.test(order);
+  if(!valid){
+    document.getElementById('message').innerHTML='<span class="error">申込番号を確認できませんでした。</span><br>案内されたURLをもう一度ご確認ください。';
+    return;
+  }
+  document.getElementById('orderDisplay').style.display='block';
+  document.getElementById('orderDisplay').textContent='申込番号：'+order;
+  var key='rentracks_cv_pid16317_'+order;
+  if(localStorage.getItem(key)==='sent') return;
+  function loadScriptRTCV(callback){
+    var script=document.createElement('script');
+    script.type='text/javascript';
+    script.src='https://www.rentracks.jp/js/itp/rt.track.js?t='+(new Date()).getTime();
+    script.onload=callback;
+    script.onerror=function(){console.error('Rentracks tracking script failed to load');};
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+  loadScriptRTCV(function(){
+    try{
+      _rt.sid=11444;
+      _rt.pid=16317;
+      _rt.price=0;
+      _rt.reward=-1;
+      _rt.cname='';
+      _rt.ctel='';
+      _rt.cemail='';
+      _rt.cinfo=encodeURIComponent(order);
+      rt_tracktag();
+      localStorage.setItem(key,'sent');
+    }catch(e){console.error('Rentracks conversion tracking failed',e);}
+  });
+})();
+</script>
+</body>
+</html>
