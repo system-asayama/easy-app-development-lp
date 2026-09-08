@@ -40,14 +40,14 @@
   }
   loadScriptRTCV(function(){
     try{
-      _rt.sid=11444;
-      _rt.pid=16317;
-      _rt.price=0;
-      _rt.reward=-1;
-      _rt.cname='';
-      _rt.ctel='';
-      _rt.cemail='';
-      _rt.cinfo=encodeURIComponent(order);
+      _rt.sid = 11444;
+      _rt.pid = 16317;
+      _rt.price = 0;
+      _rt.reward = -1;
+      _rt.cname = '';
+      _rt.ctel = '';
+      _rt.cemail = '';
+      _rt.cinfo = encodeURIComponent(order);
       rt_tracktag();
       localStorage.setItem(key,'sent');
     }catch(e){console.error('Rentracks conversion tracking failed',e);}
