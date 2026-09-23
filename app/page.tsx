@@ -36,7 +36,7 @@ export default function Home() {
         </div>
       </section>
       <section className="section method">
-        <div className="methodIntro"><p className="sectionLabel light">必要なのは、あなたの言葉だけ</p><h2>コードを書くのではなく、<br /><em>AIにやりたいことを伝える。</em></h2><p>専用のGitHubサポートアプリが、開発・保存・公開までを支えます。スマホから指示できるので、まとまったパソコン時間も必要ありません。</p></div>
+        <div className="methodIntro"><p className="sectionLabel light">必要なのは、あなたの言葉だけ</p><h2>コードを書くのではなく、<br /><em>AIにやりたいことを伝える。</em></h2><p>専用のAIアプリスタジオが、開発・保存・公開までを支えます。スマホから指示できるので、まとまったパソコン時間も必要ありません。</p></div>
         <div className="steps">
           <article><b>STEP 1</b><span>💡</span><div><h3>アイデアを伝える</h3><p>「こんなアプリが欲しい」を普段の言葉で説明します。</p></div></article>
           <article><b>STEP 2</b><span>📱</span><div><h3>スマホでAIに指示</h3><p>移動中や待ち時間にも、画面や機能の修正を進められます。</p></div></article>
